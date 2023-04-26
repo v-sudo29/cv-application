@@ -38,6 +38,8 @@
 }
 
 .name-div {
+  display: flex;
+  gap: 1rem;
   height: 5rem;
   font-size: 4rem;
   font-weight: 500;
@@ -56,5 +58,29 @@
 }
 
 .name, .profession {
+  display: flex;
+}
+
+.edit-name {
+  all: unset;
+}
+
+/* Edit icon */
+.fa-pen-to-square {
+  color: transparent;
+  height: 2rem;
+}
+
+.edit-icon-div {
+  display: flex;
   cursor: pointer;
 }
+
+/* Hover effect  */
+.name-div:hover .edit-icon {
+  color: rgb(210, 205, 173); 
+ }
+
+ .hidden {
+  color: transparent;
+ }
