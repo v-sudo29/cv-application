@@ -1,6 +1,6 @@
-import './styles/App.css'
+import './styles/App.css';
 import Header from './components/Header';
-import { useState } from 'react'
+import { useState } from 'react';
 
 function App() {
   const [person, setPerson] = useState(
@@ -23,7 +23,7 @@ function App() {
         editMode={goToEditMode}
       />
     </div>
-  )
-};
+  )  
+}
 
 export default App;
