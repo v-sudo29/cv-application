@@ -19,7 +19,7 @@ function App() {
     const elementType = e.target.localName
     if (person.isInEditMode && elementType !== 'input') {
       setPerson(prevPerson => ({...prevPerson, isInEditMode: false}));
-    } else if (person.isInEditMode) {
+    } else if (person.isInEditMode && e.key === 'Enter') {
       setPerson(prevPerson => ({...prevPerson, isInEditMode: false}));
     }
   }
@@ -43,7 +43,7 @@ function App() {
         fullName={person.fullName}
         profession={person.profession}
         isInEditMode={ person.isInEditMode }
-        editMode={changeEditMode}
+        changeEditMode={changeEditMode}
         handleChange={handleChange}
         enterKeyPressed={enterKeyPressed}
       />

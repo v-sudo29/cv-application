@@ -6,7 +6,7 @@ export default function Header(props) {
     <header className='header'>
       <Name
         isInEditMode={ props.isInEditMode } 
-        editMode={ props.editMode } 
+        changeEditMode={ props.changeEditMode } 
         fullName={ props.fullName }
         handleChange={ props.handleChange }
         enterKeyPressed={ props.enterKeyPressed }

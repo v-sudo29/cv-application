@@ -11,6 +11,7 @@ export default function Name(props) {
             <input 
               type="text"
               className='edit-name'
+              maxLength='19'
               autoFocus
               onChange={ (e) => props.handleChange(e, 'fullName') }
               onKeyDown={ props.enterKeyPressed }
@@ -26,7 +27,7 @@ export default function Name(props) {
           <div 
             className='name'> { props.fullName }
           </div>
-          <div className='edit-icon-div' onClick={ props.editMode } >
+          <div className='edit-icon-div' onClick={ props.changeEditMode } >
             <FontAwesomeIcon className='edit-icon' icon={faPenToSquare} />
           </div>
         </>
