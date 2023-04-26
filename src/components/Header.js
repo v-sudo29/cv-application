@@ -1,8 +1,17 @@
+import Name from "./Name";
+import Profession from "./Profession";
+
 export default function Header(props) {
   return (
     <div className='header'>
-      <div className='name'>{props.fullName}</div>
-      <div className='profession'>{props.profession}</div>
+      <Name 
+        editMode={ props.editMode } 
+        fullName={ props.fullName }
+      />
+      <Profession 
+        profession={ props.profession }
+        editMode={ props.editMode }
+      />
     </div>
   )
 }
