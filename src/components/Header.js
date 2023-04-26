@@ -1,19 +1,31 @@
 import Name from "./Name";
 import Profession from "./Profession";
 
-export default function Header(props) {
+export default function Header(
+  {
+    fullName,
+    profession,
+    isInEditMode,
+    changeEditMode,
+    handleChange,
+    enterKeyPressed
+  }
+) {
   return (
     <header className='header'>
       <Name
-        isInEditMode={ props.isInEditMode } 
-        changeEditMode={ props.changeEditMode } 
-        fullName={ props.fullName }
-        handleChange={ props.handleChange }
-        enterKeyPressed={ props.enterKeyPressed }
+        fullName={ fullName }
+        isInEditMode={ isInEditMode } 
+        changeEditMode={ changeEditMode } 
+        handleChange={ handleChange }
+        enterKeyPressed={ enterKeyPressed }
       />
       <Profession 
-        profession={ props.profession }
-        editMode={ props.editMode }
+        profession={ profession }
+        isInEditMode={ isInEditMode }
+        changeEditMode={ changeEditMode } 
+        handleChange={ handleChange }
+        enterKeyPressed={ enterKeyPressed } 
       />
     </header>
   )

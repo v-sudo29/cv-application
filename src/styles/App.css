@@ -61,7 +61,7 @@
   display: flex;
 }
 
-.edit-name {
+.edit-name, .edit-profession {
   all: unset;
 }
 
@@ -77,9 +77,13 @@
 }
 
 /* Hover effect  */
-.name-div:hover .edit-icon {
+.name-div:hover .name-edit-icon {
   color: rgb(210, 205, 173); 
  }
+
+.profession-div:hover .profession-edit-icon {
+  color: rgb(112, 112, 112);
+}
 
  .hidden {
   color: transparent;
