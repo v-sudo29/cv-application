@@ -8,7 +8,10 @@ function App() {
     {
       fullName: 'FULL NAME',
       profession: 'PROFESSION HERE',
-      location: 'Street Name, City, State'
+      location: 'Street Name, City, State',
+      phone: '(123) 456-7890',
+      email: 'yourname@gmail.com',
+      linkedInAddress: 'linkedinaddress.com'
     }
   )
 
@@ -23,7 +26,10 @@ function App() {
     const inputFullName = e.target.parentElement.classList.contains('fullName')
     const inputProfession = e.target.parentElement.classList.contains('profession')
     const inputLocation = e.target.parentElement.classList.contains('location')
-    console.log('clicked!')
+    const inputPhone = e.target.parentElement.classList.contains('phone')
+
+    console.log('clicked!', inputPhone)
+
     if (inputFullName) {
       setEditMode(prevEdit => (
         {
@@ -43,6 +49,13 @@ function App() {
         {
           isInEditMode: !prevEdit.isInEditMode,
           inputContext: 'location'
+        }
+      ));
+    } else if (inputPhone) {
+      setEditMode(prevEdit => (
+        {
+          isInEditMode: !prevEdit.isInEditMode,
+          inputContext: 'phone'
         }
       ));
     }
@@ -84,6 +97,7 @@ function App() {
       />
       <Sidebar 
         location={ person.location }
+        phone={ person.phone }
         isInEditMode={ editMode.isInEditMode }
         inputContext={ editMode.inputContext }
         changeEditMode={ changeEditMode }

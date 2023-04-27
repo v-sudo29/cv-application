@@ -7,13 +7,15 @@ export default function Sidebar(
     handleChange,
     enterKeyPressed,
     isInEditMode,
-    inputContext
+    inputContext,
+    phone
   }
 ) {
   return (
     <div className='sidebar-div'>
       <ContactInfo 
         location={ location }
+        phone={ phone }
         changeEditMode={ changeEditMode }
         handleChange={ handleChange }
         enterKeyPressed={ enterKeyPressed }

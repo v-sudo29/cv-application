@@ -137,16 +137,20 @@
   color: rgb(112, 112, 112);
 }
 
-.location-text:hover .location-edit-icon {
+.location-text:hover .location-edit-icon,
+.phone-text:hover .phone-edit-icon {
   color: rgb(112, 112, 112);
 }
 
- .hidden {
+.hidden {
   color: transparent;
  }
 
  /* Input */
- .edit-name, .edit-profession, .edit-location {
+ .edit-name, 
+ .edit-profession, 
+ .edit-location, 
+ .edit-phone {
   all: unset;
 }
 

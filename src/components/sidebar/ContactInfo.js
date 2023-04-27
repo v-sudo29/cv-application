@@ -1,10 +1,12 @@
 import Location from './Location'
+import Phone from './Phone'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot, faPhone, faEnvelope, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
 export default function ContactInfo(
   {
     location,
+    phone,
     changeEditMode,
     handleChange,
     enterKeyPressed,
@@ -22,12 +24,14 @@ export default function ContactInfo(
         isInEditMode={ isInEditMode }
         inputContext={ inputContext }
       />
-      <div className='contact-info phone-div'>
-        <div className='contact-icon'><FontAwesomeIcon icon={faPhone} /></div>
-        <div className='contact-text'>
-          (123) 456-789
-        </div>
-      </div>
+      <Phone 
+        phone={ phone }
+        changeEditMode={ changeEditMode }
+        handleChange={ handleChange }
+        enterKeyPressed={ enterKeyPressed }
+        isInEditMode={ isInEditMode }
+        inputContext={ inputContext }
+      />
       <div className='contact-info email-div'>
         <div className='contact-icon'><FontAwesomeIcon icon={faEnvelope} /></div>
         <div className='contact-text'>yourname@gmail.com</div>
