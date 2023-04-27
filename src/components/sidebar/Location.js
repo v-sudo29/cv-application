@@ -22,13 +22,13 @@ export default function Location(props) {
         : <>
             <div className='contact-text location-text'>
               {props.location}
-            <div className='edit-icon-div location' onClick={ props.changeEditMode } >
-                <FontAwesomeIcon className='location-edit-icon contact-edit-icon location' icon={faPenToSquare} />
-            </div>
+              <div className='edit-icon-div location' onClick={ props.changeEditMode } >
+                  <FontAwesomeIcon className='location-edit-icon contact-edit-icon location' icon={faPenToSquare} />
+              </div>
             </div>
           </>
       }
-
+      
     </div>
   )
 }
