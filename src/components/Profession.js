@@ -4,6 +4,7 @@ import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 export default function Profession(props) {
   return (
     <div className='profession-div'>
+      {/* If in edit mode, display input */}
       {(props.isInEditMode && props.inputContext === 'profession')
         ? <>
             <input 
