@@ -35,8 +35,8 @@ export default function Name(
           <div className='name'> 
             { fullName }
           </div>
-          <div className='edit-icon-div fullName' onClick={ changeEditMode } >
-            <FontAwesomeIcon className='name-edit-icon' icon={faPenToSquare} />
+          <div className='edit-icon-div fullName' onClick={(e) => changeEditMode(e) } >
+            <FontAwesomeIcon className='name-edit-icon fullName' icon={faPenToSquare} />
           </div>
         </>
       }

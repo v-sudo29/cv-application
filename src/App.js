@@ -7,7 +7,6 @@ function App() {
     {
       fullName: 'FULL NAME',
       profession: 'PROFESSION HERE',
-      isInEditMode: false
     }
   )
 
@@ -21,6 +20,7 @@ function App() {
   function changeEditMode(e) {
     const inputFullName = e.target.parentElement.classList.contains('fullName')
     const inputProfession = e.target.parentElement.classList.contains('profession')
+    
     if (inputFullName) {
       setEditMode(prevEdit => (
         {

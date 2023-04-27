@@ -49,6 +49,8 @@
 }
 
 .profession-div {
+  display: flex;
+  gap: 1rem;
   height: 3.5rem;
   font-size: 1.5rem;
   font-weight: 300;

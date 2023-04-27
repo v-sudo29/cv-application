@@ -24,7 +24,7 @@ export default function Profession(props) {
               { props.profession }
             </div>
             <div className='edit-icon-div profession' onClick={ props.changeEditMode } >
-              <FontAwesomeIcon className='profession-edit-icon' icon={faPenToSquare} />
+              <FontAwesomeIcon className='profession-edit-icon profession' icon={faPenToSquare} />
             </div>
           </>
       }
