@@ -1,4 +1,5 @@
-import ContactInfo from './ContactInfo'
+import ContactInfo from './contact-info/ContactInfo'
+import Education from './education/Education'
 
 export default function Sidebar(
   {
@@ -26,6 +27,7 @@ export default function Sidebar(
         isInEditMode={ isInEditMode }
         inputContext={ inputContext }
       />
+      <Education />
     </div>
   )
 }
