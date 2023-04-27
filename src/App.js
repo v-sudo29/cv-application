@@ -11,7 +11,7 @@ function App() {
       location: 'Street Name, City, State',
       phone: '(123) 456-7890',
       email: 'yourname@gmail.com',
-      linkedInAddress: 'linkedinaddress.com'
+      linkedIn: 'linkedinaddress.com'
     }
   )
 
@@ -28,12 +28,12 @@ function App() {
     const inputLocation = e.target.parentElement.classList.contains('location')
     const inputPhone = e.target.parentElement.classList.contains('phone')
     const inputEmail = e.target.parentElement.classList.contains('email')
+    const inputLinkedIn = e.target.parentElement.classList.contains('linkedIn')
 
-    console.log('clicked!')
+    console.log(inputLinkedIn)
 
     if (inputFullName) {
-      setEditMode(prevEdit => (
-        {
+      setEditMode(prevEdit => ({
           isInEditMode: !prevEdit.isInEditMode,
           inputContext: 'fullName'
         }
@@ -64,6 +64,13 @@ function App() {
         {
           isInEditMode: !prevEdit.isInEditMode,
           inputContext: 'email'
+        }
+      ));
+    } else if (inputLinkedIn) {
+      setEditMode(prevEdit => (
+        {
+          isInEditMode: !prevEdit.isInEditMode,
+          inputContext: 'linkedIn'
         }
       ));
     }
@@ -107,6 +114,7 @@ function App() {
         location={ person.location }
         phone={ person.phone }
         email={ person.email }
+        linkedIn={ person.linkedIn }
         isInEditMode={ editMode.isInEditMode }
         inputContext={ editMode.inputContext }
         changeEditMode={ changeEditMode }

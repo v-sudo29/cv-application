@@ -46,7 +46,7 @@
   font-weight: 500;
   padding: 1rem 1rem;
 
-  background-color: rgba(255, 237, 42, 0.9);
+  background-color: rgba(255, 237, 42, 0.8);
 }
 
 .profession-div {
@@ -139,7 +139,8 @@
 
 .location-text:hover .location-edit-icon,
 .phone-text:hover .phone-edit-icon,
-.email-text:hover .email-edit-icon {
+.email-text:hover .email-edit-icon,
+.linkedIn-text:hover .linkedIn-edit-icon {
   color: rgb(112, 112, 112);
 }
 
@@ -152,7 +153,8 @@
  .edit-profession, 
  .edit-location, 
  .edit-phone,
- .edit-email {
+ .edit-email,
+ .edit-linkedIn {
   all: unset;
 }
 

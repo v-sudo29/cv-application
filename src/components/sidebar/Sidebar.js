@@ -5,6 +5,7 @@ export default function Sidebar(
     location,
     phone,
     email,
+    linkedIn,
     changeEditMode,
     handleChange,
     enterKeyPressed,
@@ -18,6 +19,7 @@ export default function Sidebar(
         location={ location }
         phone={ phone }
         email={ email }
+        linkedIn={ linkedIn }
         changeEditMode={ changeEditMode }
         handleChange={ handleChange }
         enterKeyPressed={ enterKeyPressed }
