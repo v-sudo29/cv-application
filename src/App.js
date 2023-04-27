@@ -27,8 +27,9 @@ function App() {
     const inputProfession = e.target.parentElement.classList.contains('profession')
     const inputLocation = e.target.parentElement.classList.contains('location')
     const inputPhone = e.target.parentElement.classList.contains('phone')
+    const inputEmail = e.target.parentElement.classList.contains('email')
 
-    console.log('clicked!', inputPhone)
+    console.log('clicked!')
 
     if (inputFullName) {
       setEditMode(prevEdit => (
@@ -56,6 +57,13 @@ function App() {
         {
           isInEditMode: !prevEdit.isInEditMode,
           inputContext: 'phone'
+        }
+      ));
+    } else if (inputEmail) {
+      setEditMode(prevEdit => (
+        {
+          isInEditMode: !prevEdit.isInEditMode,
+          inputContext: 'email'
         }
       ));
     }
@@ -98,6 +106,7 @@ function App() {
       <Sidebar 
         location={ person.location }
         phone={ person.phone }
+        email={ person.email }
         isInEditMode={ editMode.isInEditMode }
         inputContext={ editMode.inputContext }
         changeEditMode={ changeEditMode }

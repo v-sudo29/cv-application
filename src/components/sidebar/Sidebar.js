@@ -3,12 +3,13 @@ import ContactInfo from './ContactInfo'
 export default function Sidebar(
   {
     location,
+    phone,
+    email,
     changeEditMode,
     handleChange,
     enterKeyPressed,
     isInEditMode,
-    inputContext,
-    phone
+    inputContext
   }
 ) {
   return (
@@ -16,6 +17,7 @@ export default function Sidebar(
       <ContactInfo 
         location={ location }
         phone={ phone }
+        email={ email }
         changeEditMode={ changeEditMode }
         handleChange={ handleChange }
         enterKeyPressed={ enterKeyPressed }
