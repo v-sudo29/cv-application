@@ -4,6 +4,7 @@ import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 export default function Name(
   {
     isInEditMode,
+    inputContext,
     handleChange,
     enterKeyPressed,
     fullName,
@@ -14,7 +15,7 @@ export default function Name(
     <div className='name-div'>
 
       {/* If in edit mode, display input */}
-      {isInEditMode
+      {(isInEditMode && inputContext === 'fullName')
         ? <>
             <input 
               type="text"
@@ -25,7 +26,7 @@ export default function Name(
               onKeyDown={ enterKeyPressed }
               defaultValue={ fullName }
             />
-            <div className='edit-icon-div'>
+            <div className='edit-icon-div fullName'>
               <FontAwesomeIcon className='hidden' icon={faPenToSquare} />
             </div>
           </>
@@ -34,7 +35,7 @@ export default function Name(
           <div className='name'> 
             { fullName }
           </div>
-          <div className='edit-icon-div' onClick={ changeEditMode } >
+          <div className='edit-icon-div fullName' onClick={ changeEditMode } >
             <FontAwesomeIcon className='name-edit-icon' icon={faPenToSquare} />
           </div>
         </>

@@ -4,7 +4,7 @@ import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 export default function Profession(props) {
   return (
     <div className='profession-div'>
-      {props.isInEditMode
+      {(props.isInEditMode && props.inputContext === 'profession')
         ? <>
             <input 
               type="text"
@@ -23,7 +23,7 @@ export default function Profession(props) {
             <div className='profession'>
               { props.profession }
             </div>
-            <div className='edit-icon-div' onClick={ props.changeEditMode } >
+            <div className='edit-icon-div profession' onClick={ props.changeEditMode } >
               <FontAwesomeIcon className='profession-edit-icon' icon={faPenToSquare} />
             </div>
           </>

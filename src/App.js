@@ -11,16 +11,39 @@ function App() {
     }
   )
 
-  function changeEditMode() {
-    setPerson(prevPerson => ({...prevPerson, isInEditMode: !prevPerson.isInEditMode}));
+  const [editMode, setEditMode] = useState(
+    {
+      isInEditMode: false,
+      inputContext: ''
+    }
+  )
+
+  function changeEditMode(e) {
+    const inputFullName = e.target.parentElement.classList.contains('fullName')
+    const inputProfession = e.target.parentElement.classList.contains('profession')
+    if (inputFullName) {
+      setEditMode(prevEdit => (
+        {
+          isInEditMode: !prevEdit.isInEditMode,
+          inputContext: 'fullName'
+        }
+      ));
+    } else if (inputProfession) {
+      setEditMode(prevEdit => (
+        {
+          isInEditMode: !prevEdit.isInEditMode,
+          inputContext: 'profession'
+        }
+      ));
+    }
   }
 
   function turnOffEditMode(e) {
     const elementType = e.target.localName
-    if (person.isInEditMode && elementType !== 'input') {
-      setPerson(prevPerson => ({...prevPerson, isInEditMode: false}));
-    } else if (person.isInEditMode && e.key === 'Enter') {
-      setPerson(prevPerson => ({...prevPerson, isInEditMode: false}));
+    if (editMode.isInEditMode && elementType !== 'input') {
+      setEditMode(prevEdit => ({isInEditMode: false, inputContext: ''}));
+    } else if (editMode.isInEditMode && e.key === 'Enter') {
+      setEditMode(prevEdit => ({isInEditMode: false, inputContext: ''}));
     }
   }
 
@@ -42,7 +65,8 @@ function App() {
       <Header 
         fullName={person.fullName}
         profession={person.profession}
-        isInEditMode={ person.isInEditMode }
+        isInEditMode={ editMode.isInEditMode }
+        inputContext={ editMode.inputContext }
         changeEditMode={changeEditMode}
         handleChange={handleChange}
         enterKeyPressed={enterKeyPressed}

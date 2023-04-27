@@ -6,6 +6,7 @@ export default function Header(
     fullName,
     profession,
     isInEditMode,
+    inputContext,
     changeEditMode,
     handleChange,
     enterKeyPressed
@@ -16,6 +17,7 @@ export default function Header(
       <Name
         fullName={ fullName }
         isInEditMode={ isInEditMode } 
+        inputContext={ inputContext }
         changeEditMode={ changeEditMode } 
         handleChange={ handleChange }
         enterKeyPressed={ enterKeyPressed }
@@ -23,6 +25,7 @@ export default function Header(
       <Profession 
         profession={ profession }
         isInEditMode={ isInEditMode }
+        inputContext={ inputContext }
         changeEditMode={ changeEditMode } 
         handleChange={ handleChange }
         enterKeyPressed={ enterKeyPressed } 
