@@ -9,6 +9,7 @@
 
 .App {
   min-width: 1000px;
+  min-height: 100%;
   text-align: center;
   font-family: 'Roboto', sans-serif;
   height: 100vh;
@@ -57,14 +58,59 @@
 
   background-color: rgba(39, 39, 42, 0.9);
   color: white;
+  letter-spacing: 0.1rem;
 }
 
 .name, .profession {
   display: flex;
 }
 
-.edit-name, .edit-profession {
-  all: unset;
+/* Sidebar */
+.sidebar-div {
+  width: 21.6%;
+  height: 76.1%;
+  padding: 1rem 1rem;
+  border: 1px solid red;
+}
+
+/* Contact Info */
+.contact-info-div {
+  padding-top: 2rem;
+}
+
+.contact-info {
+  display: flex;
+  height: 2.5rem;
+  gap: 1rem;
+
+  border-bottom: 1px solid black;
+}
+
+.location-div {
+  border-top: 1px solid black;
+}
+
+.contact-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 2.5rem;
+  height: 100%;
+  
+  background-color: rgb(246, 230, 56);
+}
+
+.linkedIn-svg {
+  width: 1rem;
+}
+
+.contact-text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 0.8rem;
+  gap: 0.2rem;
+  flex: 1;
 }
 
 /* Edit icon */
@@ -78,7 +124,11 @@
   cursor: pointer;
 }
 
-/* Hover effect  */
+.contact-edit-icon {
+  height: 1rem;
+}
+
+/* Hover icon effect  */
 .name-div:hover .name-edit-icon {
   color: rgb(210, 205, 173); 
  }
@@ -87,6 +137,19 @@
   color: rgb(112, 112, 112);
 }
 
+.location-text:hover .location-edit-icon {
+  color: rgb(112, 112, 112);
+}
+
  .hidden {
   color: transparent;
  }
+
+ /* Input */
+ .edit-name, .edit-profession, .edit-location {
+  all: unset;
+}
+
+.contact-edit {
+  text-align: left;
+}

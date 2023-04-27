@@ -1,5 +1,6 @@
 import './styles/App.css';
-import Header from './components/Header';
+import Header from './components/header/Header';
+import Sidebar from './components/sidebar/Sidebar';
 import { useState } from 'react';
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     {
       fullName: 'FULL NAME',
       profession: 'PROFESSION HERE',
+      location: 'Street Name, City, State'
     }
   )
 
@@ -20,7 +22,8 @@ function App() {
   function changeEditMode(e) {
     const inputFullName = e.target.parentElement.classList.contains('fullName')
     const inputProfession = e.target.parentElement.classList.contains('profession')
-    
+    const inputLocation = e.target.parentElement.classList.contains('location')
+    console.log('clicked!')
     if (inputFullName) {
       setEditMode(prevEdit => (
         {
@@ -35,15 +38,22 @@ function App() {
           inputContext: 'profession'
         }
       ));
+    } else if (inputLocation) {
+      setEditMode(prevEdit => (
+        {
+          isInEditMode: !prevEdit.isInEditMode,
+          inputContext: 'location'
+        }
+      ));
     }
   }
 
   function turnOffEditMode(e) {
     const elementType = e.target.localName
     if (editMode.isInEditMode && elementType !== 'input') {
-      setEditMode(prevEdit => ({isInEditMode: false, inputContext: ''}));
+      setEditMode({isInEditMode: false, inputContext: ''});
     } else if (editMode.isInEditMode && e.key === 'Enter') {
-      setEditMode(prevEdit => ({isInEditMode: false, inputContext: ''}));
+      setEditMode({isInEditMode: false, inputContext: ''});
     }
   }
 
@@ -57,19 +67,28 @@ function App() {
   function handleChange(event, property) {
     event.stopPropagation();
     const newValue = event.target.value;
+
     setPerson(prevPerson => ({...prevPerson, [property]: newValue}));
   }
 
   return (
     <div className="App" onClick={turnOffEditMode}>
       <Header 
-        fullName={person.fullName}
-        profession={person.profession}
+        fullName={ person.fullName }
+        profession={ person.profession }
         isInEditMode={ editMode.isInEditMode }
         inputContext={ editMode.inputContext }
-        changeEditMode={changeEditMode}
-        handleChange={handleChange}
-        enterKeyPressed={enterKeyPressed}
+        changeEditMode={ changeEditMode }
+        handleChange={ handleChange }
+        enterKeyPressed={ enterKeyPressed }
+      />
+      <Sidebar 
+        location={ person.location }
+        isInEditMode={ editMode.isInEditMode }
+        inputContext={ editMode.inputContext }
+        changeEditMode={ changeEditMode }
+        handleChange={ handleChange }
+        enterKeyPressed={ enterKeyPressed }
       />
     </div>
   )  
