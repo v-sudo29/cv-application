@@ -1,7 +1,20 @@
+import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
 export default function Email(props) {
+  const [userTyped, setUserTyped] = useState(false)
+
+  function handleUserTyping(e) {
+    const value = e.target.value
+    // Check if input value is empty
+    if (!/^\s*$/.test(value)) {
+      setUserTyped(prevTyped => true)
+    } else if (/^\s*$/.test(value)) {
+      setUserTyped(prevTyped => false)
+    }
+  }
+
   return (
     <div className='contact-info email-div'>
       <div className='contact-icon'><FontAwesomeIcon icon={faEnvelope} /></div>
@@ -14,12 +27,16 @@ export default function Email(props) {
               className='contact-edit edit-email'
               maxLength='27'
               autoFocus
-              onChange={ (e) => props.handleChange(e, 'email') }
+              onChange={ (e) => {
+                  props.handleChange(e, 'email')
+                  handleUserTyping(e)
+                }
+              }
               onKeyDown={ props.enterKeyPressed }
-              defaultValue={ props.email }
+              defaultValue={ userTyped ? props.email : '' }
+              placeholder={ userTyped ? '' : 'yourname@email.com' }
             />
           </div>
-
         : <div className='contact-text email-text'>
             {props.email}
             <div className='edit-icon-div email' onClick={ props.changeEditMode } >

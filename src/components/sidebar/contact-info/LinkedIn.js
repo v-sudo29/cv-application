@@ -1,7 +1,20 @@
+import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
 export default function LinkedIn(props) {
+  const [userTyped, setUserTyped] = useState(false)
+
+  function handleUserTyping(e) {
+    const value = e.target.value
+    // Check if input value is empty
+    if (!/^\s*$/.test(value)) {
+      setUserTyped(prevTyped => true)
+    } else if (/^\s*$/.test(value)) {
+      setUserTyped(prevTyped => false)
+    }
+  }
+
   return (
     <div className='contact-info svg-div'>
       <div className='contact-icon'>
@@ -16,9 +29,14 @@ export default function LinkedIn(props) {
               className='contact-edit edit-linkedIn'
               maxLength='27'
               autoFocus
-              onChange={ (e) => props.handleChange(e, 'linkedIn') }
+              onChange={ (e) => {
+                  props.handleChange(e, 'linkedIn') 
+                  handleUserTyping(e)
+                }
+              }
               onKeyDown={ props.enterKeyPressed }
-              defaultValue={ props.linkedIn }
+              defaultValue={ userTyped ? props.linkedIn : '' }
+              placeholder={ userTyped ? '' : 'linkedinaddress.com' }
             />
           </div>
         : <div className='contact-text linkedIn-text'>

@@ -8,7 +8,7 @@ function App() {
     {
       fullName: 'FULL NAME',
       profession: 'PROFESSION HERE',
-      location: 'Street Name, City, State',
+      location: 'City, State',
       phone: '(123) 456-7890',
       email: 'yourname@gmail.com',
       linkedIn: 'linkedinaddress.com'
@@ -29,8 +29,6 @@ function App() {
     const inputPhone = e.target.parentElement.classList.contains('phone')
     const inputEmail = e.target.parentElement.classList.contains('email')
     const inputLinkedIn = e.target.parentElement.classList.contains('linkedIn')
-
-    console.log(inputLinkedIn)
 
     if (inputFullName) {
       setEditMode(prevEdit => ({

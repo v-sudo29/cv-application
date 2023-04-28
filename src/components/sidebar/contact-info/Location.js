@@ -1,7 +1,20 @@
+import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
 export default function Location(props) {
+  const [userTyped, setUserTyped] = useState(false)
+
+  function handleUserTyping(e) {
+    const value = e.target.value
+    // Check if input value is empty
+    if (!/^\s*$/.test(value)) {
+      setUserTyped(prevTyped => true)
+    } else if (/^\s*$/.test(value)) {
+      setUserTyped(prevTyped => false)
+    }
+  }
+
   return (
     <div className='contact-info location-div'>
       <div className='contact-icon'><FontAwesomeIcon icon={faLocationDot} /></div>
@@ -14,9 +27,14 @@ export default function Location(props) {
               className='contact-edit edit-location'
               maxLength='24'
               autoFocus
-              onChange={ (e) => props.handleChange(e, 'location') }
+              onChange={ (e) => {
+                  props.handleChange(e, 'location')
+                  handleUserTyping(e)
+                }
+              }
               onKeyDown={ props.enterKeyPressed }
-              defaultValue={ props.location }
+              defaultValue={ userTyped ? props.location : '' }
+              placeholder={ userTyped ? '' : 'City, State' }
             />
           </div>
         : <>

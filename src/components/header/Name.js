@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
@@ -11,6 +12,17 @@ export default function Name(
     changeEditMode
   }
 ) {
+  const [userTyped, setUserTyped] = useState(false)
+
+  function handleUserTyping(e) {
+    const value = e.target.value
+    // Check if input value is empty
+    if (!/^\s*$/.test(value)) {
+      setUserTyped(prevTyped => true)
+    } else if (/^\s*$/.test(value)) {
+      setUserTyped(prevTyped => false)
+    }
+  }
   return (
     <div className='name-div'>
 
@@ -22,9 +34,14 @@ export default function Name(
               className='edit-name'
               maxLength='19'
               autoFocus
-              onChange={ (e) => handleChange(e, 'fullName') }
+              onChange={ (e) => {
+                  handleChange(e, 'fullName') 
+                  handleUserTyping(e)
+                }
+              }
               onKeyDown={ enterKeyPressed }
-              defaultValue={ fullName }
+              defaultValue={ userTyped ? fullName : '' }
+              placeholder={ userTyped ? '' : undefined }
             />
             <div className='edit-icon-div fullName'>
               <FontAwesomeIcon className='hidden' icon={faPenToSquare} />
@@ -33,7 +50,7 @@ export default function Name(
         : 
         <>
           <div className='name'> 
-            { fullName }
+            { userTyped ? fullName : 'FULL NAME'}
           </div>
           <div className='edit-icon-div fullName' onClick={(e) => changeEditMode(e) } >
             <FontAwesomeIcon className='name-edit-icon fullName' icon={faPenToSquare} />
