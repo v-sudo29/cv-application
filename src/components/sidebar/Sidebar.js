@@ -1,5 +1,6 @@
 import ContactInfo from './contact-info/ContactInfo'
 import Education from './education/Education'
+import Skills from './skills/Skills'
 
 export default function Sidebar(
   {
@@ -28,6 +29,7 @@ export default function Sidebar(
         inputContext={ inputContext }
       />
       <Education />
+      <Skills />
     </div>
   )
 }

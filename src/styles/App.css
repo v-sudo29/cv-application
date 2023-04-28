@@ -117,15 +117,15 @@
   flex: 1;
 }
 
-/* Education Info */
-.education-div {
+/* Education and Skills */
+.education-div, .skills-div {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   text-align: left;
 }
 
-.education-title {
+.education-title, .skills-title {
   font-size: 1.3rem;
   font-weight: 900;
   letter-spacing: 0.22rem;
@@ -133,6 +133,7 @@
   border-bottom: 1px solid black;
 }
 
+/* Education */
 .credential-div {
   font-family: 'Times New Roman', Times, serif;
   display: flex;
@@ -160,6 +161,32 @@
   font-weight: 200;
   color:rgb(112, 112, 112)
 }
+
+/* Skills */
+.skills-content {
+  font-family: 'Merriweather', serif;
+
+}
+
+.skills-content > ul {
+  all: unset;
+  list-style-position: inside;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skills-content > ul > li {
+  font-size: 1.2rem;
+}
+
+.skills-content > ul > li > span {
+  font-size: 0.8rem;
+  font-weight: 100;
+  position: relative;
+  right: 0.5rem;
+}
+
 /* Edit icon */
 .fa-pen-to-square {
   color: transparent;
