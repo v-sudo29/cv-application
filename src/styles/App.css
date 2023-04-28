@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 
+:root {
+  padding: 0;
+  margin: 0;
+}
+
 #root {
   display: flex;
   justify-content: center;
@@ -141,9 +146,15 @@
   gap: 0.5rem;
 }
 
+.credential-div > div {
+  height: 1.2rem;
+}
+
 .credential-name {
   font-size: 1rem;
   font-weight: 600;
+  display: flex;
+  gap: 0.3rem;
 }
 
 .university-name, .university-years {
@@ -151,15 +162,27 @@
 }
 
 .university-name {
-  font-size: 0.66rem;
+  font-size: 0.65rem;
   font-weight: 200;
   font-style: italic;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
 }
 
 .university-years {
   font-size: 0.8rem;
   font-weight: 200;
-  color:rgb(112, 112, 112)
+  color:rgb(112, 112, 112);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.credential-name > input,
+.university-name > input,
+.university-years > input {
+  height: inherit;
 }
 
 /* Skills */
@@ -198,7 +221,7 @@
   cursor: pointer;
 }
 
-.contact-edit-icon {
+.contact-edit-icon, .education-edit-icon {
   height: 1rem;
 }
 
@@ -214,7 +237,10 @@
 .location-text:hover .location-edit-icon,
 .phone-text:hover .phone-edit-icon,
 .email-text:hover .email-edit-icon,
-.linkedIn-text:hover .linkedIn-edit-icon {
+.linkedIn-text:hover .linkedIn-edit-icon,
+.credential-name:hover .credential-name-edit-icon,
+.university-name:hover .university-name-edit-icon,
+.university-years:hover .university-years-edit-icon {
   color: rgb(112, 112, 112);
 }
 
@@ -228,11 +254,18 @@
  .edit-location, 
  .edit-phone,
  .edit-email,
- .edit-linkedIn {
+ .edit-linkedIn,
+ .edit-credential-name,
+ .edit-university-name,
+ .edit-university-years {
   all: unset;
 }
 
 .contact-edit {
   text-align: left;
+  width: 100%;
+}
+
+.education-edit {
   width: 100%;
 }

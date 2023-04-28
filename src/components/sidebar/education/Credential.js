@@ -1,13 +1,9 @@
-import ContactInfo from './contact-info/ContactInfo'
-import Education from './education/Education'
-import Skills from './skills/Skills'
+import CredentialName from "./CredentialName"
+import UniversityName from "./UniversityName"
+import UniversityYears from "./UniversityYears"
 
-export default function Sidebar(
+export default function Credential(
   {
-    location,
-    phone,
-    email,
-    linkedIn,
     credentialName,
     universityName,
     universityYears,
@@ -19,21 +15,24 @@ export default function Sidebar(
   }
 ) {
   return (
-    <div className='sidebar-div'>
-      <ContactInfo 
-        location={ location }
-        phone={ phone }
-        email={ email }
-        linkedIn={ linkedIn }
+    <div className='credential-div'>
+      <CredentialName
+        credentialName={ credentialName }
         changeEditMode={ changeEditMode }
         handleChange={ handleChange }
         enterKeyPressed={ enterKeyPressed }
         isInEditMode={ isInEditMode }
         inputContext={ inputContext }
       />
-      <Education 
-        credentialName={ credentialName }
+      <UniversityName 
         universityName={ universityName }
+        changeEditMode={ changeEditMode }
+        handleChange={ handleChange }
+        enterKeyPressed={ enterKeyPressed }
+        isInEditMode={ isInEditMode }
+        inputContext={ inputContext }
+      />
+      <UniversityYears 
         universityYears={ universityYears }
         changeEditMode={ changeEditMode }
         handleChange={ handleChange }
@@ -41,7 +40,6 @@ export default function Sidebar(
         isInEditMode={ isInEditMode }
         inputContext={ inputContext }
       />
-      <Skills />
     </div>
   )
 }

@@ -11,7 +11,10 @@ function App() {
       location: 'City, State',
       phone: '(123) 456-7890',
       email: 'yourname@gmail.com',
-      linkedIn: 'linkedinaddress.com'
+      linkedIn: 'linkedinaddress.com',
+      credentialName: 'B.A. Name of Major',
+      universityName: 'Name of University',
+      universityYears: '2020-2025'
     }
   )
 
@@ -22,6 +25,8 @@ function App() {
     }
   )
 
+  console.log(person.credentialName, person.universityName, person.universityYears)
+
   function changeEditMode(e) {
     const inputFullName = e.target.parentElement.classList.contains('fullName')
     const inputProfession = e.target.parentElement.classList.contains('profession')
@@ -29,6 +34,9 @@ function App() {
     const inputPhone = e.target.parentElement.classList.contains('phone')
     const inputEmail = e.target.parentElement.classList.contains('email')
     const inputLinkedIn = e.target.parentElement.classList.contains('linkedIn')
+    const inputCredentialName = e.target.parentElement.classList.contains('credentialName')
+    const inputUniversityName = e.target.parentElement.classList.contains('universityName')
+    const inputUniversityYears = e.target.parentElement.classList.contains('universityYears')
 
     if (inputFullName) {
       setEditMode(prevEdit => ({
@@ -69,6 +77,27 @@ function App() {
         {
           isInEditMode: !prevEdit.isInEditMode,
           inputContext: 'linkedIn'
+        }
+      ));
+    } else if (inputCredentialName) {
+      setEditMode(prevEdit => (
+        {
+          isInEditMode: !prevEdit.isInEditMode,
+          inputContext: 'credentialName'
+        }
+      ));
+    } else if (inputUniversityName) {
+      setEditMode(prevEdit => (
+        {
+          isInEditMode: !prevEdit.isInEditMode,
+          inputContext: 'universityName'
+        }
+      ));
+    } else if (inputUniversityYears) {
+      setEditMode(prevEdit => (
+        {
+          isInEditMode: !prevEdit.isInEditMode,
+          inputContext: 'universityYears'
         }
       ));
     }
@@ -113,6 +142,11 @@ function App() {
         phone={ person.phone }
         email={ person.email }
         linkedIn={ person.linkedIn }
+
+        credentialName={ person.credentialName }
+        universityName={ person.universityName }
+        universityYears={ person.universityYears }
+
         isInEditMode={ editMode.isInEditMode }
         inputContext={ editMode.inputContext }
         changeEditMode={ changeEditMode }
