@@ -8,9 +8,14 @@ export default function Sidebar(
     phone,
     email,
     linkedIn,
+
     credentialName,
     universityName,
     universityYears,
+
+    skills,
+    skillIndex,
+
     changeEditMode,
     handleChange,
     enterKeyPressed,
@@ -41,7 +46,15 @@ export default function Sidebar(
         isInEditMode={ isInEditMode }
         inputContext={ inputContext }
       />
-      <Skills />
+      <Skills 
+        skills={ skills }  
+        skillIndex={ skillIndex }
+        changeEditMode={ changeEditMode }
+        handleChange={ handleChange }
+        enterKeyPressed={ enterKeyPressed }
+        isInEditMode={ isInEditMode }
+        inputContext={ inputContext }
+      />
     </div>
   )
 }

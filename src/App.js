@@ -14,20 +14,21 @@ function App() {
       linkedIn: 'linkedinaddress.com',
       credentialName: 'B.A. Name of Major',
       universityName: 'Name of University',
-      universityYears: '2020-2025'
+      universityYears: '2020-2025',
+      skills: ['Figma', 'Illustrator', 'Adobe Photoshop', 'Prototyping', 'Wireframing', 'UX/UI Design']
     }
   )
 
   const [editMode, setEditMode] = useState(
     {
       isInEditMode: false,
-      inputContext: ''
+      inputContext: '',
+      skillIndex: '0'
     }
   )
 
-  console.log(person.credentialName, person.universityName, person.universityYears)
-
   function changeEditMode(e) {
+    e.stopPropagation()
     const inputFullName = e.target.parentElement.classList.contains('fullName')
     const inputProfession = e.target.parentElement.classList.contains('profession')
     const inputLocation = e.target.parentElement.classList.contains('location')
@@ -37,6 +38,7 @@ function App() {
     const inputCredentialName = e.target.parentElement.classList.contains('credentialName')
     const inputUniversityName = e.target.parentElement.classList.contains('universityName')
     const inputUniversityYears = e.target.parentElement.classList.contains('universityYears')
+    const inputSkill = e.target.parentElement.classList.contains('skills')
 
     if (inputFullName) {
       setEditMode(prevEdit => ({
@@ -100,15 +102,26 @@ function App() {
           inputContext: 'universityYears'
         }
       ));
+    } else if (inputSkill) {
+      const skillIndex = e.target.parentElement.parentElement.id;
+
+      setEditMode(prevEdit => (
+        {
+          isInEditMode: !prevEdit.isInEditMode,
+          inputContext: 'skills',
+          skillIndex: skillIndex
+        }
+      ));
+      console.log(editMode)
     }
   }
 
   function turnOffEditMode(e) {
     const elementType = e.target.localName
     if (editMode.isInEditMode && elementType !== 'input') {
-      setEditMode({isInEditMode: false, inputContext: ''});
+      setEditMode({isInEditMode: false, inputContext: '', index: ''});
     } else if (editMode.isInEditMode && e.key === 'Enter') {
-      setEditMode({isInEditMode: false, inputContext: ''});
+      setEditMode({isInEditMode: false, inputContext: '', index: ''});
     }
   }
 
@@ -119,11 +132,18 @@ function App() {
     }
   }
 
-  function handleChange(event, property) {
-    event.stopPropagation();
-    const newValue = event.target.value;
+  function handleChange(e, property) {
+    e.stopPropagation();
+    const newValue = e.target.value;
+    const index = e.target.parentElement.parentElement.parentElement.id;
 
-    setPerson(prevPerson => ({...prevPerson, [property]: newValue}));
+    console.log(newValue)
+    if (property === 'skills') {
+      console.log('working!')
+      setPerson(prevPerson => ({...prevPerson, [property[index]]: newValue}));
+    } else {
+      setPerson(prevPerson => ({...prevPerson, [property]: newValue}));
+    }
   }
 
   return (
@@ -147,11 +167,16 @@ function App() {
         universityName={ person.universityName }
         universityYears={ person.universityYears }
 
+        skills={ person.skills }
+        skillIndex={ editMode.skillIndex }
+
         isInEditMode={ editMode.isInEditMode }
         inputContext={ editMode.inputContext }
         changeEditMode={ changeEditMode }
         handleChange={ handleChange }
         enterKeyPressed={ enterKeyPressed }
+
+      
       />
     </div>
   )  

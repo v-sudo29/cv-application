@@ -188,7 +188,6 @@
 /* Skills */
 .skills-content {
   font-family: 'Merriweather', serif;
-
 }
 
 .skills-content > ul {
@@ -199,15 +198,20 @@
   gap: 0.5rem;
 }
 
-.skills-content > ul > li {
+.skills-content > ul > div > li {
   font-size: 1.2rem;
 }
 
-.skills-content > ul > li > span {
+.skills-content > ul > div > li > span {
   font-size: 0.8rem;
   font-weight: 100;
   position: relative;
   right: 0.5rem;
+}
+
+.skills-item {
+  display: flex;
+  align-items: center;
 }
 
 /* Edit icon */
@@ -221,7 +225,9 @@
   cursor: pointer;
 }
 
-.contact-edit-icon, .education-edit-icon {
+.contact-edit-icon, 
+.education-edit-icon,
+.skills-edit-icon {
   height: 1rem;
 }
 
@@ -240,7 +246,8 @@
 .linkedIn-text:hover .linkedIn-edit-icon,
 .credential-name:hover .credential-name-edit-icon,
 .university-name:hover .university-name-edit-icon,
-.university-years:hover .university-years-edit-icon {
+.university-years:hover .university-years-edit-icon,
+.skills-item:hover .skills-edit-icon {
   color: rgb(112, 112, 112);
 }
 
