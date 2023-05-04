@@ -1,19 +1,10 @@
-import { useState } from 'react'
+import useUserTypingHandler from '../../../useUserTypingHandler'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
 export default function CredentialName(props) {
-  const [userTyped, setUserTyped] = useState(false)
-
-  function handleUserTyping(e) {
-    const value = e.target.value
-    // Check if input value is empty
-    if (!/^\s*$/.test(value)) {
-      setUserTyped(prevTyped => true)
-    } else if (/^\s*$/.test(value)) {
-      setUserTyped(prevTyped => false)
-    }
-  }
+  const {userTyped, handleUserTyping} = useUserTypingHandler()
+  
   return (
     <div className='credential-name'>
 
