@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import useUserTypingHandler from '../../useUserTypingHandler'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
@@ -12,17 +12,8 @@ export default function Name(
     changeEditMode
   }
 ) {
-  const [userTyped, setUserTyped] = useState(false)
+  const {userTyped, handleUserTyping} = useUserTypingHandler()
 
-  function handleUserTyping(e) {
-    const value = e.target.value
-    // Check if input value is empty
-    if (!/^\s*$/.test(value)) {
-      setUserTyped(prevTyped => true)
-    } else if (/^\s*$/.test(value)) {
-      setUserTyped(prevTyped => false)
-    }
-  }
   return (
     <div className='name-div'>
 

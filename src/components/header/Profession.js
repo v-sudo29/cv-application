@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import useUserTypingHandler from '../../useUserTypingHandler'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
@@ -12,17 +12,7 @@ export default function Profession(
     changeEditMode
   }
 ) {
-  const [userTyped, setUserTyped] = useState(false)
-
-  function handleUserTyping(e) {
-    const value = e.target.value
-    // Check if input value is empty
-    if (!/^\s*$/.test(value)) {
-      setUserTyped(prevTyped => true)
-    } else if (/^\s*$/.test(value)) {
-      setUserTyped(prevTyped => false)
-    }
-  }
+  const {userTyped, handleUserTyping} = useUserTypingHandler()
 
   return (
     <div className='profession-div'>
@@ -32,7 +22,7 @@ export default function Profession(
             <input 
               type="text"
               className='edit-profession'
-              maxLength='19'
+              maxLength='25'
               autoFocus
               onChange={ (e) => {
                   handleChange(e, 'profession')
