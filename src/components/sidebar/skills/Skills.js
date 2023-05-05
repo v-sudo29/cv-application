@@ -1,20 +1,9 @@
-import { useState } from 'react'
+import useUserTypingHandler from '../../../useUserTypingHandler'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
 export default function Skills(props) {
-  const [userTyped, setUserTyped] = useState(false)
-
-  function handleUserTyping(e) {
-    const value = e.target.value
-
-    // Check if input value is empty
-    if (!/^\s*$/.test(value)) {
-      setUserTyped(prevTyped => true)
-    } else if (/^\s*$/.test(value)) {
-      setUserTyped(prevTyped => false)
-    }
-  }
+  const {userTyped, handleUserTyping} = useUserTypingHandler()
 
   let allSkills = props.skills.map((skill, index) => {
       return (
@@ -53,6 +42,7 @@ export default function Skills(props) {
       )
     }
   )
+
   return (
     <div className='skills-div'>
       <div className='skills-title'>SKILLS</div>
