@@ -175,36 +175,6 @@ function App() {
     }
   }
 
-  // function handleChange(e, property) {
-  //   e.stopPropagation();
-  //   const newValue = e.target.value;
-  //   const index = parseInt(e.target.parentElement.parentElement.parentElement.id);
-
-  //   if (property === 'skills') {
-
-  //     if (/^\s*$/.test(newValue)) {
-  //       console.log('empty value!!!')
-  
-  //       let skillsArrCopy = person.skills
-  //       skillsArrCopy.splice(index, 1)
-  
-  //       console.log(skillsArrCopy)
-  
-  //       setPerson(prevPerson => ({...prevPerson, [property]: skillsArrCopy}));
-  //       return
-  //     }
-
-  //     const newSkills = person[property].map((skill, currentIndex) => {
-  //       return (
-  //         currentIndex === index ? newValue : skill
-  //       )
-  //     })
-  //     setPerson(prevPerson => ({...prevPerson, [property]: newSkills}));
-  //   } else {
-  //     setPerson(prevPerson => ({...prevPerson, [property]: newValue}));
-  //   }
-  // }
-
   return (
     <div className="App" onClick={turnOffEditMode}>
       <Header 
