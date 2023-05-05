@@ -175,35 +175,35 @@ function App() {
     }
   }
 
-  function handleChange(e, property) {
-    e.stopPropagation();
-    const newValue = e.target.value;
-    const index = parseInt(e.target.parentElement.parentElement.parentElement.id);
+  // function handleChange(e, property) {
+  //   e.stopPropagation();
+  //   const newValue = e.target.value;
+  //   const index = parseInt(e.target.parentElement.parentElement.parentElement.id);
 
-    if (property === 'skills') {
+  //   if (property === 'skills') {
 
-      if (/^\s*$/.test(newValue)) {
-        console.log('empty value!!!')
+  //     if (/^\s*$/.test(newValue)) {
+  //       console.log('empty value!!!')
   
-        let skillsArrCopy = person.skills
-        skillsArrCopy.splice(index, 1)
+  //       let skillsArrCopy = person.skills
+  //       skillsArrCopy.splice(index, 1)
   
-        console.log(skillsArrCopy)
+  //       console.log(skillsArrCopy)
   
-        setPerson(prevPerson => ({...prevPerson, [property]: skillsArrCopy}));
-        return
-      }
+  //       setPerson(prevPerson => ({...prevPerson, [property]: skillsArrCopy}));
+  //       return
+  //     }
 
-      const newSkills = person[property].map((skill, currentIndex) => {
-        return (
-          currentIndex === index ? newValue : skill
-        )
-      })
-      setPerson(prevPerson => ({...prevPerson, [property]: newSkills}));
-    } else {
-      setPerson(prevPerson => ({...prevPerson, [property]: newValue}));
-    }
-  }
+  //     const newSkills = person[property].map((skill, currentIndex) => {
+  //       return (
+  //         currentIndex === index ? newValue : skill
+  //       )
+  //     })
+  //     setPerson(prevPerson => ({...prevPerson, [property]: newSkills}));
+  //   } else {
+  //     setPerson(prevPerson => ({...prevPerson, [property]: newValue}));
+  //   }
+  // }
 
   return (
     <div className="App" onClick={turnOffEditMode}>
@@ -213,7 +213,6 @@ function App() {
         isInEditMode={ editMode.isInEditMode }
         inputContext={ editMode.inputContext }
         changeEditMode={ changeEditMode }
-        handleChange={ handleChange }
         enterKeyPressed={ enterKeyPressed }
       />
       <Sidebar 
@@ -232,7 +231,6 @@ function App() {
         isInEditMode={ editMode.isInEditMode }
         inputContext={ editMode.inputContext }
         changeEditMode={ changeEditMode }
-        handleChange={ handleChange }
         enterKeyPressed={ enterKeyPressed }
 
       

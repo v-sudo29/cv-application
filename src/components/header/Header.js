@@ -8,7 +8,6 @@ export default function Header(
     isInEditMode,
     inputContext,
     changeEditMode,
-    handleChange,
     enterKeyPressed
   }
 ) {
@@ -19,7 +18,6 @@ export default function Header(
         isInEditMode={ isInEditMode } 
         inputContext={ inputContext }
         changeEditMode={ changeEditMode } 
-        handleChange={ handleChange }
         enterKeyPressed={ enterKeyPressed }
       />
       <Profession 
@@ -27,7 +25,6 @@ export default function Header(
         isInEditMode={ isInEditMode }
         inputContext={ inputContext }
         changeEditMode={ changeEditMode } 
-        handleChange={ handleChange }
         enterKeyPressed={ enterKeyPressed } 
       />
     </header>

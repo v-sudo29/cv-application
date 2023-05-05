@@ -6,7 +6,6 @@ export default function Profession(
   {
     isInEditMode,
     inputContext,
-    handleChange,
     enterKeyPressed,
     profession,
     changeEditMode

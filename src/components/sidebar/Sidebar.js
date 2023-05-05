@@ -17,7 +17,6 @@ export default function Sidebar(
     skillIndex,
 
     changeEditMode,
-    handleChange,
     enterKeyPressed,
     isInEditMode,
     inputContext
@@ -31,7 +30,6 @@ export default function Sidebar(
         email={ email }
         linkedIn={ linkedIn }
         changeEditMode={ changeEditMode }
-        handleChange={ handleChange }
         enterKeyPressed={ enterKeyPressed }
         isInEditMode={ isInEditMode }
         inputContext={ inputContext }
@@ -41,7 +39,6 @@ export default function Sidebar(
         universityName={ universityName }
         universityYears={ universityYears }
         changeEditMode={ changeEditMode }
-        handleChange={ handleChange }
         enterKeyPressed={ enterKeyPressed }
         isInEditMode={ isInEditMode }
         inputContext={ inputContext }
@@ -50,7 +47,6 @@ export default function Sidebar(
         skills={ skills }  
         skillIndex={ skillIndex }
         changeEditMode={ changeEditMode }
-        handleChange={ handleChange }
         enterKeyPressed={ enterKeyPressed }
         isInEditMode={ isInEditMode }
         inputContext={ inputContext }

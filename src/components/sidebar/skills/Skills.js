@@ -29,7 +29,6 @@ export default function Skills(props) {
                       maxLength='24'
                       autoFocus
                       onChange={ (e) => {
-                          // props.handleChange(e, 'skills')
                           handleUserTyping(e)
                         }
                       }

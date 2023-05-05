@@ -10,7 +10,6 @@ export default function ContactInfo(
     email,
     linkedIn,
     changeEditMode,
-    handleChange,
     enterKeyPressed,
     isInEditMode,
     inputContext
@@ -21,7 +20,6 @@ export default function ContactInfo(
       <Location 
         location={ location }
         changeEditMode={ changeEditMode }
-        handleChange={ handleChange }
         enterKeyPressed={ enterKeyPressed }
         isInEditMode={ isInEditMode }
         inputContext={ inputContext }
@@ -29,7 +27,6 @@ export default function ContactInfo(
       <Phone 
         phone={ phone }
         changeEditMode={ changeEditMode }
-        handleChange={ handleChange }
         enterKeyPressed={ enterKeyPressed }
         isInEditMode={ isInEditMode }
         inputContext={ inputContext }
@@ -37,7 +34,6 @@ export default function ContactInfo(
       <Email 
         email={ email }
         changeEditMode={ changeEditMode }
-        handleChange={ handleChange }
         enterKeyPressed={ enterKeyPressed }
         isInEditMode={ isInEditMode }
         inputContext={ inputContext }
@@ -45,7 +41,6 @@ export default function ContactInfo(
       <LinkedIn 
         linkedIn={ linkedIn }
         changeEditMode={ changeEditMode }
-        handleChange={ handleChange }
         enterKeyPressed={ enterKeyPressed }
         isInEditMode={ isInEditMode }
         inputContext={ inputContext }

@@ -6,7 +6,6 @@ export default function Name(
   {
     isInEditMode,
     inputContext,
-    handleChange,
     enterKeyPressed,
     fullName,
     changeEditMode
