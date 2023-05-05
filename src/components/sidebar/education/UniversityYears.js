@@ -15,7 +15,6 @@ export default function UniversityYears(props) {
             maxLength='24'
             autoFocus
             onChange={ (e) => {
-                // props.handleChange(e, 'universityYears')
                 handleUserTyping(e)
               }
             }

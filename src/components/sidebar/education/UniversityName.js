@@ -17,7 +17,6 @@ export default function UniversityName(props) {
             maxLength='40'
             autoFocus
             onChange={ (e) => {
-                // props.handleChange(e, 'universityName')
                 handleUserTyping(e)
               }
             }

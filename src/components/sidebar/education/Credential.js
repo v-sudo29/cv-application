@@ -8,7 +8,6 @@ export default function Credential(
     universityName,
     universityYears,
     changeEditMode,
-    handleChange,
     enterKeyPressed,
     isInEditMode,
     inputContext
@@ -19,7 +18,6 @@ export default function Credential(
       <CredentialName
         credentialName={ credentialName }
         changeEditMode={ changeEditMode }
-        handleChange={ handleChange }
         enterKeyPressed={ enterKeyPressed }
         isInEditMode={ isInEditMode }
         inputContext={ inputContext }
@@ -27,7 +25,6 @@ export default function Credential(
       <UniversityName 
         universityName={ universityName }
         changeEditMode={ changeEditMode }
-        handleChange={ handleChange }
         enterKeyPressed={ enterKeyPressed }
         isInEditMode={ isInEditMode }
         inputContext={ inputContext }
@@ -35,7 +32,6 @@ export default function Credential(
       <UniversityYears 
         universityYears={ universityYears }
         changeEditMode={ changeEditMode }
-        handleChange={ handleChange }
         enterKeyPressed={ enterKeyPressed }
         isInEditMode={ isInEditMode }
         inputContext={ inputContext }
