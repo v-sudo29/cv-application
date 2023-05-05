@@ -13,12 +13,12 @@ export default function Location(props) {
       {(props.isInEditMode && props.inputContext === 'location')
         ? <div className='contact-text'>  
             <input 
+              id='currentInput'
               type="text"
               className='contact-edit edit-location'
               maxLength='24'
               autoFocus
               onChange={ (e) => {
-                  props.handleChange(e, 'location')
                   handleUserTyping(e)
                 }
               }

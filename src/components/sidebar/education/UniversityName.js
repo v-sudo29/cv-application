@@ -11,12 +11,13 @@ export default function UniversityName(props) {
       {/* If in edit mode, display input */}
       {(props.isInEditMode && props.inputContext === 'universityName')
         ? <input 
+            id='currentInput'
             type="text"
             className='education-edit edit-university-name'
             maxLength='40'
             autoFocus
             onChange={ (e) => {
-                props.handleChange(e, 'universityName')
+                // props.handleChange(e, 'universityName')
                 handleUserTyping(e)
               }
             }

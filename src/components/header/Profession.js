@@ -20,12 +20,12 @@ export default function Profession(
       {(isInEditMode && inputContext === 'profession')
         ? <>
             <input 
+              id='currentInput'
               type="text"
               className='edit-profession'
               maxLength='25'
               autoFocus
               onChange={ (e) => {
-                  handleChange(e, 'profession')
                   handleUserTyping(e)
                 }
               }

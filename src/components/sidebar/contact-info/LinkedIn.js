@@ -15,12 +15,12 @@ export default function LinkedIn(props) {
       {(props.isInEditMode && props.inputContext === 'linkedIn')
         ? <div className='contact-text'>  
             <input 
+              id='currentInput'
               type="text"
               className='contact-edit edit-linkedIn'
               maxLength='27'
               autoFocus
               onChange={ (e) => {
-                  props.handleChange(e, 'linkedIn') 
                   handleUserTyping(e)
                 }
               }

@@ -13,12 +13,12 @@ export default function Email(props) {
       {(props.isInEditMode && props.inputContext === 'email')
         ? <div className='contact-text'>  
             <input 
+              id='currentInput'
               type="text"
               className='contact-edit edit-email'
               maxLength='27'
               autoFocus
               onChange={ (e) => {
-                  props.handleChange(e, 'email')
                   handleUserTyping(e)
                 }
               }

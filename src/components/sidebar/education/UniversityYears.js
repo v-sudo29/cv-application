@@ -9,12 +9,13 @@ export default function UniversityYears(props) {
     <div className='university-years'>
       {(props.isInEditMode && props.inputContext === 'universityYears')
         ? <input 
+            id='currentInput'
             type="text"
             className='education-edit edit-university-years'
             maxLength='24'
             autoFocus
             onChange={ (e) => {
-                props.handleChange(e, 'universityYears')
+                // props.handleChange(e, 'universityYears')
                 handleUserTyping(e)
               }
             }

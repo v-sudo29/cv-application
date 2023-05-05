@@ -198,7 +198,7 @@
   gap: 0.5rem;
 }
 
-.skills-content > ul > div > li {
+.skills-content > ul > div > li::marker {
   font-size: 1.2rem;
 }
 
@@ -213,6 +213,7 @@
   display: flex;
   align-items: center;
 }
+
 
 /* Edit icon */
 .fa-pen-to-square {
@@ -264,7 +265,8 @@
  .edit-linkedIn,
  .edit-credential-name,
  .edit-university-name,
- .edit-university-years {
+ .edit-university-years,
+ .edit-skills {
   all: unset;
 }
 

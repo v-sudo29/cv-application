@@ -13,12 +13,12 @@ export default function Phone(props) {
       {(props.isInEditMode && props.inputContext === 'phone')
         ? <div className='contact-text'>  
             <input 
+              id='currentInput'
               type="text"
               className='contact-edit edit-phone'
               maxLength='24'
               autoFocus
               onChange={ (e) => {
-                  props.handleChange(e, 'phone')
                   handleUserTyping(e)
                 }
               }

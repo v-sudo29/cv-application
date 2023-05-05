@@ -1,40 +1,54 @@
-import useUserTypingHandler from '../../../useUserTypingHandler'
+import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
 export default function Skills(props) {
-  const {userTyped, handleUserTyping} = useUserTypingHandler()
+  const [userTyped, setUserTyped] = useState(false)
 
-  const allSkills = props.skills.map((skill, index) => {
-    console.log(parseInt(props.skillIndex) === index)
+  function handleUserTyping(e) {
+    const value = e.target.value
 
+    // Check if input value is empty
+    if (!/^\s*$/.test(value)) {
+      setUserTyped(prevTyped => true)
+    } else if (/^\s*$/.test(value)) {
+      setUserTyped(prevTyped => false)
+    }
+  }
+
+  let allSkills = props.skills.map((skill, index) => {
       return (
         <div className='skills-item' key={index} id={index}>
           {(props.isInEditMode && props.inputContext === 'skills' && parseInt(props.skillIndex) === index)
-            ? <li> 
-                <span>
-                  <input 
-                    type="text"
-                    className='skills-edit edit-skills'
-                    maxLength='24'
-                    autoFocus
-                    onChange={ (e) => {
-                        props.handleChange(e, 'skills')
-                        handleUserTyping(e)
+              ? <li> 
+                  <span>
+                    <input
+                      id='currentInput' 
+                      type="text"
+                      className='skills-edit edit-skills skills'
+                      maxLength='24'
+                      autoFocus
+                      onChange={ (e) => {
+                          // props.handleChange(e, 'skills')
+                          handleUserTyping(e)
+                        }
                       }
-                    }
-                    onKeyDown={ props.enterKeyPressed }
-                    defaultValue={ userTyped ? '' : '' }
-                    placeholder={ userTyped ? '' : '' }
-                  />
-                </span>
-              </li>
+                      onKeyDown={ props.enterKeyPressed }
+                      defaultValue={ userTyped ? skill : '' }
+                      placeholder={ userTyped ? '' : '' }
+                    />
+                  </span>
+                </li>
             : <>
-                <li><span>{skill}</span></li>
-                <div className='edit-icon-div skills' onClick={ (e) => props.changeEditMode(e) } id={index}>
-                  <FontAwesomeIcon className='skills-edit-icon skills-edit-icon skills' icon={faPenToSquare} />
-                </div>
-              </>
+                {skill &&
+                <>
+                    <li><span>{skill}</span></li>
+                    <div className='edit-icon-div skills' onClick={ (e) => props.changeEditMode(e) } id={index}>
+                      <FontAwesomeIcon className='skills-edit-icon skills-edit-icon skills' icon={faPenToSquare} />
+                    </div>
+                </>
+                }
+              </>  
           }
         </div>
       )

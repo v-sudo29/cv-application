@@ -21,12 +21,12 @@ export default function Name(
       {(isInEditMode && inputContext === 'fullName')
         ? <>
             <input 
+              id='currentInput'
               type="text"
               className='edit-name'
               maxLength='19'
               autoFocus
               onChange={ (e) => {
-                  handleChange(e, 'fullName') 
                   handleUserTyping(e)
                 }
               }

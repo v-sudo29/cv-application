@@ -23,7 +23,7 @@ function App() {
     {
       isInEditMode: false,
       inputContext: '',
-      skillIndex: '0'
+      skillIndex: 0
     }
   )
 
@@ -103,7 +103,7 @@ function App() {
         }
       ));
     } else if (inputSkill) {
-      const skillIndex = e.target.parentElement.parentElement.id;
+      const skillIndex = parseInt(e.target.parentElement.parentElement.id);
 
       setEditMode(prevEdit => (
         {
@@ -112,16 +112,25 @@ function App() {
           skillIndex: skillIndex
         }
       ));
-      console.log(editMode)
     }
   }
 
   function turnOffEditMode(e) {
     const elementType = e.target.localName
+    const valueContext = editMode.inputContext;
+    const currentDomNode = document.getElementById('currentInput')
+
     if (editMode.isInEditMode && elementType !== 'input') {
+
+      submitInputValue(currentDomNode.value, valueContext);
       setEditMode({isInEditMode: false, inputContext: '', index: ''});
+      return
+
     } else if (editMode.isInEditMode && e.key === 'Enter') {
+
+      submitInputValue(currentDomNode.value, valueContext)
       setEditMode({isInEditMode: false, inputContext: '', index: ''});
+      return
     }
   }
 
@@ -132,15 +141,65 @@ function App() {
     }
   }
 
+  function submitInputValue(value, property) {
+    const index = editMode.skillIndex
+
+    // Update skill array
+      if (property === 'skills') {
+        
+        // Delete skill if empty
+        if (/^\s*$/.test(value)) {    
+          let skillsArrCopy = person.skills
+          skillsArrCopy.splice(index, 1)
+    
+          setPerson(prevPerson => ({...prevPerson, [property]: skillsArrCopy}));
+          return
+        } 
+
+        // Modify skill
+        else if (!/^\s*$/.test(value)) {
+          const newSkills = person[property].map((skill, currentIndex) => {
+            return (
+              currentIndex === index ? value : skill
+            )
+          })
+          setPerson(prevPerson => ({...prevPerson, [property]: newSkills}));
+          return
+
+        }
+      } 
+      
+    // Update other properties
+    else {
+      setPerson(prevPerson => ({...prevPerson, [property]: value}));
+    }
+  }
+
   function handleChange(e, property) {
     e.stopPropagation();
     const newValue = e.target.value;
-    const index = e.target.parentElement.parentElement.parentElement.id;
+    const index = parseInt(e.target.parentElement.parentElement.parentElement.id);
 
-    console.log(newValue)
     if (property === 'skills') {
-      console.log('working!')
-      setPerson(prevPerson => ({...prevPerson, [property[index]]: newValue}));
+
+      if (/^\s*$/.test(newValue)) {
+        console.log('empty value!!!')
+  
+        let skillsArrCopy = person.skills
+        skillsArrCopy.splice(index, 1)
+  
+        console.log(skillsArrCopy)
+  
+        setPerson(prevPerson => ({...prevPerson, [property]: skillsArrCopy}));
+        return
+      }
+
+      const newSkills = person[property].map((skill, currentIndex) => {
+        return (
+          currentIndex === index ? newValue : skill
+        )
+      })
+      setPerson(prevPerson => ({...prevPerson, [property]: newSkills}));
     } else {
       setPerson(prevPerson => ({...prevPerson, [property]: newValue}));
     }

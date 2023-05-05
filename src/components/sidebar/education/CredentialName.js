@@ -11,12 +11,13 @@ export default function CredentialName(props) {
       {/* If in edit mode, display input */}
       {(props.isInEditMode && props.inputContext === 'credentialName')
         ? <input 
+            id='currentInput'
             type="text"
             className='education-edit edit-credential-name'
             maxLength='24'
             autoFocus
             onChange={ (e) => {
-                props.handleChange(e, 'credentialName')
+                // props.handleChange(e, 'credentialName')
                 handleUserTyping(e)
               }
             }
