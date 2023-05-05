@@ -17,7 +17,6 @@ export default function CredentialName(props) {
             maxLength='24'
             autoFocus
             onChange={ (e) => {
-                // props.handleChange(e, 'credentialName')
                 handleUserTyping(e)
               }
             }
