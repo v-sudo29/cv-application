@@ -202,8 +202,6 @@ function App() {
         inputContext={ editMode.inputContext }
         changeEditMode={ changeEditMode }
         enterKeyPressed={ enterKeyPressed }
-
-      
       />
     </div>
   )  
