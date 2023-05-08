@@ -1,6 +1,7 @@
 import './styles/App.css';
 import Header from './components/header/Header';
 import Sidebar from './components/sidebar/Sidebar';
+import Main from './components/main/Main';
 import { useState } from 'react';
 
 function App() {
@@ -185,24 +186,27 @@ function App() {
         changeEditMode={ changeEditMode }
         enterKeyPressed={ enterKeyPressed }
       />
-      <Sidebar 
-        location={ person.location }
-        phone={ person.phone }
-        email={ person.email }
-        linkedIn={ person.linkedIn }
+      <div className='sidebar-main-div'>
+        <Sidebar 
+          location={ person.location }
+          phone={ person.phone }
+          email={ person.email }
+          linkedIn={ person.linkedIn }
 
-        credentialName={ person.credentialName }
-        universityName={ person.universityName }
-        universityYears={ person.universityYears }
+          credentialName={ person.credentialName }
+          universityName={ person.universityName }
+          universityYears={ person.universityYears }
 
-        skills={ person.skills }
-        skillIndex={ editMode.skillIndex }
+          skills={ person.skills }
+          skillIndex={ editMode.skillIndex }
 
-        isInEditMode={ editMode.isInEditMode }
-        inputContext={ editMode.inputContext }
-        changeEditMode={ changeEditMode }
-        enterKeyPressed={ enterKeyPressed }
-      />
+          isInEditMode={ editMode.isInEditMode }
+          inputContext={ editMode.inputContext }
+          changeEditMode={ changeEditMode }
+          enterKeyPressed={ enterKeyPressed }
+        />
+        <Main />
+      </div>
     </div>
   )  
 }
