@@ -16,7 +16,8 @@ function App() {
       credentialName: 'B.A. Name of Major',
       universityName: 'Name of University',
       universityYears: '2020-2025',
-      skills: ['Figma', 'Illustrator', 'Adobe Photoshop', 'Prototyping', 'Wireframing', 'UX/UI Design']
+      skills: ['Figma', 'Illustrator', 'Adobe Photoshop', 'Prototyping', 'Wireframing', 'UX/UI Design'],
+      profileDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis, magna in sagittis tincidunt, purus mi finibus libero, vehicula ullamcorper ipsum ligula sit amet massa. Donec viverra condimentum sem eget suscipit. Praesent aliquam tincidunt quam ut sodales. Ut vestibulum sem ut erat congue vehicula. Integer massa dui, tristique eu tellus in, vulputate malesuada nisi. Proin non venenatis purus.'
     }
   )
 
@@ -40,6 +41,7 @@ function App() {
     const inputUniversityName = e.target.parentElement.classList.contains('universityName')
     const inputUniversityYears = e.target.parentElement.classList.contains('universityYears')
     const inputSkill = e.target.parentElement.classList.contains('skills')
+    const inputProfileDescription = e.target.parentElement.classList.contains('profileDescription')
 
     if (inputFullName) {
       setEditMode(prevEdit => ({
@@ -113,6 +115,14 @@ function App() {
           skillIndex: skillIndex
         }
       ));
+    } else if (inputProfileDescription) {
+
+      setEditMode(prevEdit => (
+        {
+          isInEditMode: !prevEdit.isInEditMode,
+          inputContext: 'profileDescription'
+        }
+      ));
     }
   }
 
@@ -120,18 +130,24 @@ function App() {
     const elementType = e.target.localName
     const valueContext = editMode.inputContext;
     const currentDomNode = document.getElementById('currentInput')
+    const textarea = (e.target.parentElement.classList.contains('profile-textarea') 
+                      || e.target.parentElement.classList.contains('profile-text-div'))
+    console.log(textarea)
 
-    if (editMode.isInEditMode && elementType !== 'input') {
-
+    if (textarea === true) {
+      return
+    }
+    
+    if (editMode.isInEditMode &&  elementType !== 'input') {
+      console.log('triggered')
       submitInputValue(currentDomNode.value, valueContext);
       setEditMode({isInEditMode: false, inputContext: '', index: ''});
-      return
 
     } else if (editMode.isInEditMode && e.key === 'Enter') {
 
       submitInputValue(currentDomNode.value, valueContext)
       setEditMode({isInEditMode: false, inputContext: '', index: ''});
-      return
+
     }
   }
 
@@ -205,7 +221,14 @@ function App() {
           changeEditMode={ changeEditMode }
           enterKeyPressed={ enterKeyPressed }
         />
-        <Main />
+        <Main 
+          profileDescription={person.profileDescription}
+
+          isInEditMode={ editMode.isInEditMode }
+          inputContext={ editMode.inputContext }
+          changeEditMode={ changeEditMode }
+          enterKeyPressed={ enterKeyPressed }
+        />
       </div>
     </div>
   )  
